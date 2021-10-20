@@ -1,4 +1,4 @@
 # itechart-nodejs
 Pizza Delivery
 
-Задача: разработать приложение для заказа пиццы с доставкой.
+Task: to develop an application for ordering pizza with delivery.
