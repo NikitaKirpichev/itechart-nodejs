@@ -121,6 +121,28 @@ ALTER TABLE cart
 		ON DELETE CASCADE 
 		ON UPDATE CASCADE;
 
-ALTER TABLE orders
 
 ALTER TABLE orders
+	ADD CONSTRAINT FK_orders_user_id_users_id
+    FOREIGN KEY(user_id) REFERENCES users(id)
+		ON DELETE CASCADE 
+		ON UPDATE CASCADE;
+
+ALTER TABLE orders
+	ADD CONSTRAINT FK_orders_discount_promocodes_discount
+    FOREIGN KEY(discount) REFERENCES promocodes(discount)
+		ON DELETE CASCADE 
+		ON UPDATE CASCADE;
+
+ALTER TABLE orders
+	ADD CONSTRAINT FK_orders_pizza_id_pizzas_id
+    FOREIGN KEY(pizza_id) REFERENCES pizzas(id)
+		ON DELETE CASCADE 
+		ON UPDATE CASCADE;
+        
+        
+ALTER TABLE pizzas_properties
+	ADD CONSTRAINT FK_pizzas_properties_pizza_id_pizzas_id
+    FOREIGN KEY(pizza_id) REFERENCES pizzas(id)
+		ON DELETE CASCADE 
+		ON UPDATE CASCADE
