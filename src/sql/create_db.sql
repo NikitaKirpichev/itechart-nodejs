@@ -129,7 +129,6 @@ ALTER TABLE orders
 		ON DELETE CASCADE 
 		ON UPDATE CASCADE;
         
-        
 ALTER TABLE pizzas_properties
 	ADD CONSTRAINT FK_pizzas_properties_pizza_id_pizzas_id
     FOREIGN KEY(pizza_id) REFERENCES pizzas(id)
