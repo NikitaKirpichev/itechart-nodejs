@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 const router = express.Router();
 app.use(router);
 
+require("./src/sequelize")
+
 router.use((err,req,res,next) => {
     if (err){
         return res.send(err.message);
