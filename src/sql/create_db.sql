@@ -27,17 +27,17 @@ DROP TABLE IF EXISTS `users_info`;
 CREATE TABLE `users_info`(
 	`id`                INTEGER                     AUTO_INCREMENT		PRIMARY KEY,
     `user_id`           INTEGER         NOT NULL, 
-    `first_name`		TEXT			NOT NULL,
-    `last_name`			TEXT			NOT NULL
+    `first_name`		VARCHAR(100)	NOT NULL,
+    `last_name`			VARCHAR(100)	NOT NULL
 );
 
 DROP TABLE IF EXISTS `pizzas`;
 CREATE TABLE `pizzas`(
 	`id`                INTEGER                     AUTO_INCREMENT		PRIMARY KEY,
     `name`              VARCHAR(100)    NOT NULL,
-    `price`             DECIMAL         NOT NULL,
+    `price`             FLOAT         	NOT NULL,
     `img`               VARCHAR(255),
-	`description`       TEXT
+	`description`       VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS `pizzas_properties`;
@@ -45,8 +45,8 @@ CREATE TABLE `pizzas_properties`(
 	`id`                INTEGER                     AUTO_INCREMENT		PRIMARY KEY,
     `pizza_id` 			INTEGER 	    NOT NULL,
     `size`              INTEGER         NOT NULL,
-    `weight`            DECIMAL         NOT NULL,
-    `ingredients`       TEXT            NOT NULL
+    `weight`            FLOAT         	NOT NULL,
+    `ingredients`       VARCHAR(255)    NOT NULL
 );
 
 DROP TABLE IF EXISTS `cart`;
@@ -55,7 +55,7 @@ CREATE TABLE `cart`(
     `user_id` 			INTEGER 	    NOT NULL,
     `order_id` 			INTEGER 	    NOT NULL,
     `pizza_id` 			INTEGER 	    NOT NULL,
-    `order_price` 		DECIMAL 	    NOT NULL,
+    `order_price` 		FLOAT 	    	NOT NULL,
     `amount` 			INTEGER 	    NOT NULL
 );
 
@@ -64,18 +64,18 @@ CREATE TABLE `orders`(
 	`id` 				INTEGER 					AUTO_INCREMENT		PRIMARY KEY,
     `user_id` 			INTEGER 	    NOT NULL,
     `pizza_id` 			INTEGER 	    NOT NULL,
-	`status` 			TEXT,
-    `adress`			TEXT 		    NOT NULL,
-    `delivery_method` 	TEXT 		    NOT NULL,
-    `payment_method` 	TEXT 		    NOT NULL,
+	`status` 			VARCHAR(1),
+    `adress`			VARCHAR(255) 	NOT NULL,
+    `delivery_method` 	VARCHAR(255)  	NOT NULL,
+    `payment_method` 	VARCHAR(2)  	NOT NULL,
     `promocode_id` 		INTEGER,
-    `comment` 			TEXT
+    `comment` 			VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS `promocodes`;
 CREATE TABLE `promocodes`(
 	`id` 				INTEGER 					AUTO_INCREMENT		PRIMARY KEY,
-    `discount` 			DECIMAL 	    NOT NULL,
+    `discount` 			FLOAT 	    	NOT NULL,
     `starts_at` 		DATETIME 	    NOT NULL,
     `expires_at` 		DATETIME 	    NOT NULL
 );
