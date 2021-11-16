@@ -19,6 +19,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require("./pizzas.js")(sequelize, Sequelize);
+db.pizzas = require("./pizzas.js")(sequelize, Sequelize);
 
 module.exports = db;
