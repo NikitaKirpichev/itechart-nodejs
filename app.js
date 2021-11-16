@@ -1,27 +1,23 @@
 const express = require("express");
 const app = express();
-const PORT = 3000;
-const port = process.env.PORT || 3500;
 const bodyParser = require('body-parser')
 
-app.use(bodyParser.urlencoded({extended:true}));
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
-const router = express.Router();
-app.use(router);
+const db = require("./src/models");
 
-require("./src/sequelize");
-require("./src/dbaccess")();
+db.sequelize.sync();
 
-router.use((err,req,res,next) => {
-    if (err){
-        return res.send(err.message);
-    }
+app.get("/", (req,res) => {
+    res.json({message: "Hello"});
 })
 
-app.listen(PORT, err => {
-    if (err){
-        return console.log(`Cannot listen on port ${port}`);
-    }
-    console.log(`App listen on port ${port}`);
-})
+require("./src/routers/routers")(app);
+
+const PORT = process.env.PORT || 3500;
+
+app.listen(PORT, () => {
+    console.log (`Server is running on port ${PORT}`);
+});
