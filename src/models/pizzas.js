@@ -14,16 +14,16 @@ module.exports = (sequelize, Sequelize) =>{
         },
 
         price: {
-            type: DataTypes.FLOAT(2),
+            type: Sequelize.FLOAT(2),
             allowNull: false
         },
 
         img : {
-            type: DataTypes.STRING
+            type: Sequelize.STRING
         },
 
         description : {
-            type: DataTypes.STRING
+            type: Sequelize.STRING
         }
     });
     return pizzas;
