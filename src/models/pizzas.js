@@ -1,17 +1,17 @@
-const { DataTypes }= require("sequelize");
 
-let pizzas = [
-    'pizzas',
-    {
+const Sequelize= require("sequelize");
+
+let pizzas = sequelize.define("pizzas",{
+    
         id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             allowNull: false,
             unique: true
         },
 
         name: {
-            type: DataTypes.STRING(100),
+            type: Sequelize.STRING(100),
             allowNull: false,
         },
 
@@ -27,10 +27,8 @@ let pizzas = [
         description : {
             type: DataTypes.STRING
         }
-    },
-    {
-        timestamps: false
     }
-]
+
+
 
 module.exports = pizzas;

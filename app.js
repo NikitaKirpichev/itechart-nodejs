@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = 3000;
+const port = process.env.PORT || 3500;
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -9,7 +10,8 @@ app.use(bodyParser.json());
 const router = express.Router();
 app.use(router);
 
-require("./src/sequelize")
+require("./src/sequelize");
+require("./src/dbaccess")();
 
 router.use((err,req,res,next) => {
     if (err){
