@@ -1,9 +1,9 @@
 const db = require("../models");
-const Tutorial = db.pizzas;
+const Pizza = db.pizzas;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.id) {
         res.status(400).send({
           message: "Content can not be empty!"
         });
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
       };
     
       // Save in the database
-      Pizzas.create(pizzas)
+      Pizza.create(pizzas)
         .then(data => {
           res.send(data);
         })
