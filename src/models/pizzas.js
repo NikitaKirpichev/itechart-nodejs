@@ -27,8 +27,4 @@ module.exports = (sequelize, Sequelize) =>{
         }
     });
     return pizzas;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> feature/index_models
