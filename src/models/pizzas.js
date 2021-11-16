@@ -1,7 +1,5 @@
-
-const Sequelize= require("sequelize");
-
-let pizzas = sequelize.define("pizzas",{
+module.exports = (sequelize, Sequelize) =>{
+    const pizzas = sequelize.define("pizzas",{
     
         id: {
             type: Sequelize.INTEGER,
@@ -27,8 +25,6 @@ let pizzas = sequelize.define("pizzas",{
         description : {
             type: DataTypes.STRING
         }
-    }
-
-
-
-module.exports = pizzas;
+    });
+    return pizzas;
+}
