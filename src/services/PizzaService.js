@@ -1,7 +1,7 @@
-const pizzaRepository = require('../repositories/PizzaRepository');
+const PizzaRepository = require('../repositories/PizzaRepository');
 
 class PizzaService{
-    addPizza = async (name) =>{
+    add = async (name) =>{
         const getCandidate = await PizzaRepository.getByName(name);
         
         if (getCandidate){
