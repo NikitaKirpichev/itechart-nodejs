@@ -1,30 +1,42 @@
-module.exports = (sequelize, Sequelize) =>{
-    const pizzas = sequelize.define("pizzas",{
-    
+const { DataTypes, Model } = require('sequelize');
+
+module.exports = (sequelize) => {
+
+    class Pizza extends Model { };
+
+    Pizza.init({
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false,
-            unique: true
-        },
-
-        name: {
-            type: Sequelize.STRING(100),
-            allowNull: false,
-        },
-
-        price: {
-            type: Sequelize.FLOAT(2),
+            unique: true,
             allowNull: false
         },
-
-        img : {
-            type: Sequelize.STRING
+        name: {
+            type: DataTypes.STRING(100),
+            allowNull: false
         },
-
+        price: {
+            type: DataTypes.FLOAT(2),
+            allowNull: false
+        },
+        img: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         description : {
-            type: Sequelize.STRING
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+    }, {
+        sequelize,
+        modelName: 'pizza',
+
+        name: {
+            simple: 'pizza',
+            plural: 'pizzas',
         }
     });
-    return pizzas;
+
+    
+    return Pizza;
 }
